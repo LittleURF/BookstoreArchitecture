@@ -22,11 +22,21 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+*.pdb
+.vs/
 
 # .NET Core
 project.lock.json
 project.fragment.lock.json
 artifacts/
+.dotnet/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -55,3 +65,14 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Angular / Node.js
+node_modules/
+dist/
+.angular/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo

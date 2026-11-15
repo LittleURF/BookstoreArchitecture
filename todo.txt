@@ -1,0 +1,59 @@
+1. Add Domain/Application projects (Book model + BookService)
+2. Add Infra/Api projects (no DB/barely functionting GET controller)
+3. Ensure OpenAPI + some UI is served for it
+
+4. Add PostgreSQL
+    - persist Books
+    
+
+5. Expand API slightly (Create/Delete endpoints working with postgres)
+
+6. Expand Domain/Application/(Infra/API by extension) project
+    - Add Author model, availability, price
+    - Add business / SQL constraint, price cannot be equal to 67$.
+
+7. Use proper configuration with Azure? configuration NOT based only on appsettings..?
+8. Use KeyVault for Postgres access or smth. 
+9. Add a simple vibed angular app, with some login page & allowing GET/POST/DELETE of the stuff. 
+10. Add auth (in some form. Allow GET for all, POST/DELETE only for X)
+11. Add ServiceBus
+    - Add an azure function or smth to emit a message BOOK_POPULARITY_CHANGED (low/medium/big)
+    - Add a handler of that message (increase price.)
+12. Add some simple file upload & download with blob storage. 
+
+
+And thats it!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+If you wanted, you can add onto here some more interesting stuff like how to work with huge files, smaller object updates (put/patch/jsonpatch)
+Cert based communication (so perhaps some azure function can call an API endpoint based on a cert, thus not exposed to most people.)
+etc., but thats bonus stuff!!
