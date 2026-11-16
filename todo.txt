@@ -1,4 +1,6 @@
 1. Add Domain/Application projects (Book model + BookService)
+Look at eshop, reminder on DDD 
+
 2. Add Infra/Api projects (no DB/barely functionting GET controller)
 3. Ensure OpenAPI + some UI is served for it
 
@@ -26,7 +28,8 @@ And thats it!!!
 
 
 
-
+https://vscode.dev/github/dotnet/eShop?vscode-lang=pl-pl
+https://github.com/dotnet-architecture/eShopOnContainers/tree/dev/src/Services/Ordering
 
 
 

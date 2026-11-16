@@ -1,3 +1,17 @@
 <Solution>
-  <Project Path="BookstoreArchitecture.Api/BookstoreArchitecture.Api.csproj" />
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+    <File Path="todo.txt" />
+  </Folder>
+  <Project Path="BookstoreArchitecture.Api/BookstoreArchitecture.Api.csproj">
+    <BuildDependency Project="BookstoreArchitecture.Application/BookstoreArchitecture.Application.csproj" />
+    <BuildDependency Project="BookstoreArchitecture.Domain/BookstoreArchitecture.Domain.csproj" />
+    <BuildDependency Project="BookstoreArchitecture.Infrastructure/BookstoreArchitecture.Infrastructure.csproj" />
+  </Project>
+  <Project Path="BookstoreArchitecture.Application/BookstoreArchitecture.Application.csproj" Id="5ae7768d-a32e-43c9-83ea-ab171d5f426e" />
+  <Project Path="BookstoreArchitecture.Domain/BookstoreArchitecture.Domain.csproj" Id="ba8b0b7f-e193-4d8c-ab20-088e13e2439b" />
+  <Project Path="BookstoreArchitecture.Infrastructure/BookstoreArchitecture.Infrastructure.csproj" Id="5a7de0c3-85ed-4c02-8002-2ea06aea9bc8">
+    <BuildDependency Project="BookstoreArchitecture.Application/BookstoreArchitecture.Application.csproj" />
+    <BuildDependency Project="BookstoreArchitecture.Domain/BookstoreArchitecture.Domain.csproj" />
+  </Project>
 </Solution>
