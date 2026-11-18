@@ -1,4 +1,4 @@
-﻿using BookstoreArchitecture.Domain;
+﻿using BookstoreArchitecture.Domain.Aggregates.CatalogAggregate;
 
 namespace BookstoreArchitecture.Application
 {

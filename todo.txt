@@ -1,5 +1,7 @@
-1. Add Domain/Application projects (Book model + BookService)
-Look at eshop, reminder on DDD 
+alt + . - copilot suggestion
+
+1. Add Domain/Application projects (Book model + BookService).
+Add Application project with BookService.
 
 2. Add Infra/Api projects (no DB/barely functionting GET controller)
 3. Ensure OpenAPI + some UI is served for it
