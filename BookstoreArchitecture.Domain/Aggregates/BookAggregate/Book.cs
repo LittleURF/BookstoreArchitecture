@@ -1,7 +1,6 @@
-﻿using BookstoreArchitecture.Domain.Aggregates.BookAggregate;
-using BookstoreArchitecture.Domain.ValueObjects;
+﻿using BookstoreArchitecture.Domain.ValueObjects;
 
-namespace BookstoreArchitecture.Domain.Aggregates.CatalogAggregate
+namespace BookstoreArchitecture.Domain.Aggregates.BookAggregate
 {
     public class Book : Entity, IAggregateRoot
     {

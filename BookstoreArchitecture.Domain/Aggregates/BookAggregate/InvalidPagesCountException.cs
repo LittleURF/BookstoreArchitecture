@@ -14,5 +14,9 @@ namespace BookstoreArchitecture.Domain.Aggregates.BookAggregate
         public InvalidPagesCountException(string message) : base(message)
         {
         }
+
+        public InvalidPagesCountException(string message, Exception innerException)
+        {
+        }
     }
 }
