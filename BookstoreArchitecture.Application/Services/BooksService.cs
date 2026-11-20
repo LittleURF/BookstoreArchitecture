@@ -23,6 +23,21 @@ namespace BookstoreArchitecture.Application.Services
             return await booksRepository.GetAllBooksAsync(cancellationToken);
         }
 
+        public async Task<Book> CreateBookAsync(string title, int pageCount, decimal price, string currencyCode, CancellationToken cancellationToken)
+        {
+            var book = new Book(title, pageCount, price, currencyCode);
+            await booksRepository.AddBookAsync(book, cancellationToken);
+            await booksRepository.SaveChangesAsync(cancellationToken);
+            return book;
+        }
+
+        public async Task DeleteBookAsync(Guid id, CancellationToken cancellationToken)
+        {
+            await GetBookAsync(id, cancellationToken);
+            await booksRepository.DeleteBookAsync(id, cancellationToken);
+            await booksRepository.SaveChangesAsync(cancellationToken);
+        }
+
         public async Task UpdateBookToPremiumAsync(Guid id, CancellationToken cancellationToken)
         {
             var book = await GetBookAsync(id, cancellationToken);

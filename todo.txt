@@ -1,10 +1,5 @@
 alt + . - copilot suggestion
 
-2. Add Api projects
- Ensure OpenAPI + some UI is served for it
- Create/Delete endpoints
-
-
 3. Add Infrastructure project with PostgreSQL
     - persist Books
     

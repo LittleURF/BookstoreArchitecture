@@ -24,6 +24,20 @@ public sealed class InMemoryBooksRepository : IBooksRepository
         return Task.FromResult<IEnumerable<Book>>(_books.ToArray());
     }
 
+    public Task AddBookAsync(Book book, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        _books.Add(book);
+        return Task.CompletedTask;
+    }
+
+    public Task DeleteBookAsync(Guid id, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        _books.RemoveAll(book => book.Id == id);
+        return Task.CompletedTask;
+    }
+
     public Task SaveChangesAsync(CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
