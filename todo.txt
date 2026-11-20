@@ -1,15 +1,13 @@
 alt + . - copilot suggestion
 
-1. Add Domain/Application projects (Book model + BookService).
-2. Add Infra/Api projects (no DB/barely functionting GET controller)
-API - handle propagated DB errors
-3. Ensure OpenAPI + some UI is served for it
+2. Add Api projects
+ Ensure OpenAPI + some UI is served for it
+ Create/Delete endpoints
 
-4. Add PostgreSQL
+
+3. Add Infrastructure project with PostgreSQL
     - persist Books
     
-
-5. Expand API slightly (Create/Delete endpoints working with postgres)
 
 6. Expand Domain/Application/(Infra/API by extension) project
     - Add Author model, availability, price
