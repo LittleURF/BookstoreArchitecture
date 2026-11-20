@@ -27,9 +27,10 @@ namespace BookstoreArchitecture.Api
                 ProblemDetails = new()
                 {
                     Status = status,
-                    Title = title
+                    Title = title,
+                    Detail = exception.Message
                 },
-                Exception = hostEnvironment.IsDevelopment() ? exception : null
+                Exception = hostEnvironment.IsDevelopment() ? exception : null,
             });
         }
     }

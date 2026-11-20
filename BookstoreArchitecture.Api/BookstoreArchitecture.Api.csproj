@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <PackageReference Include="Scalar.AspNetCore" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BookstoreArchitecture.Application\BookstoreArchitecture.Application.csproj" />
     <ProjectReference Include="..\BookstoreArchitecture.Domain\BookstoreArchitecture.Domain.csproj" />
+    <ProjectReference Include="..\BookstoreArchitecture.Infrastructure\BookstoreArchitecture.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

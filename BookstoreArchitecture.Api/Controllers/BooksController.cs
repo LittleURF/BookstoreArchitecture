@@ -8,9 +8,9 @@ namespace BookstoreArchitecture.Controllers
     [Route("books")]
     public class BooksController : ControllerBase
     {
-        private readonly BooksService _booksService;
+        private readonly IBooksService _booksService;
 
-        public BooksController(BooksService booksService)
+        public BooksController(IBooksService booksService)
         {
             _booksService = booksService;
         }
