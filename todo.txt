@@ -1,8 +1,6 @@
 alt + . - copilot suggestion
 
-3. Add Infrastructure project with PostgreSQL
-    - persist Books
-    
+5. Add API Dtos (or wherever, but endpoints cant expose the aggregate class directly)
 
 6. Expand Domain/Application/(Infra/API by extension) project
     - Add Author model, availability, price
