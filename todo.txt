@@ -1,15 +1,12 @@
 alt + . - copilot suggestion
 
-5. Add API Dtos (or wherever, but endpoints cant expose the aggregate class directly)
-
 6. Expand Domain/Application/(Infra/API by extension) project
-    - Add Author model, availability, price
+    - Add Author model (seperate table), availability(maybe)
     - Add business / SQL constraint, price cannot be equal to 67$.
 
 7. Use proper configuration with Azure? configuration NOT based only on appsettings..?
 8. Use KeyVault for Postgres access or smth. 
-9. Add a simple vibed angular app, with some login page & allowing GET/POST/DELETE of the stuff. 
-10. Add auth (in some form. Allow GET for all, POST/DELETE only for X)
+9. Add auth (in some form. Allow GET for all, POST/DELETE only for X)
 11. Add ServiceBus
     - Add an azure function or smth to emit a message BOOK_POPULARITY_CHANGED (low/medium/big)
     - Add a handler of that message (increase price.)

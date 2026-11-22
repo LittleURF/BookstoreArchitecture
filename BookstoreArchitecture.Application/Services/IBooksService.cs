@@ -1,4 +1,4 @@
-﻿using BookstoreArchitecture.Application.DTOs;
+﻿using BookstoreArchitecture.Application.Models;
 
 namespace BookstoreArchitecture.Application.Services
 {

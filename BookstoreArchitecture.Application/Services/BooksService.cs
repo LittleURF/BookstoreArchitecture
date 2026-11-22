@@ -1,7 +1,7 @@
 ﻿using BookstoreArchitecture.Application.Repositories;
 using BookstoreArchitecture.Application.Exceptions;
 using BookstoreArchitecture.Domain.Aggregates.BookAggregate;
-using BookstoreArchitecture.Application.DTOs;
+using BookstoreArchitecture.Application.Models;
 
 namespace BookstoreArchitecture.Application.Services
 {
@@ -54,6 +54,6 @@ namespace BookstoreArchitecture.Application.Services
         }
 
         private static BookDto ToDto(Book book) =>
-            new(book.Id, book.Title, book.PageCount.Value, book.Price.Amount);
+            new(book.Id, book.Title, book.PageCount.Value, book.Price.Amount, book.Price.CurrencyCode);
     }
 }

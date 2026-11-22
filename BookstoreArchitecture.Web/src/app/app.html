@@ -1,0 +1,152 @@
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Bookshop home">
+    <span class="brand-mark" aria-hidden="true">B</span>
+    <span>Bookshop</span>
+  </a>
+  <span class="header-note">Your neighborhood book collection</span>
+</header>
+
+<main class="page">
+  <section class="intro">
+    <p class="eyebrow">THE BOOKSHELF</p>
+    <h1>Find your next read.</h1>
+    <p class="intro-copy">Browse the collection, explore a book, or add one to the shelf.</p>
+  </section>
+
+  @if (errorMessage()) {
+    <div class="notice notice-error" role="alert">{{ errorMessage() }}</div>
+  }
+  @if (successMessage()) {
+    <div class="notice notice-success" role="status">{{ successMessage() }}</div>
+  }
+
+  <div class="content-grid">
+    <section class="collection" aria-labelledby="collection-title" [attr.aria-busy]="loading()">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">AVAILABLE NOW</p>
+          <h2 id="collection-title">The collection</h2>
+        </div>
+        <span class="book-count">{{ books().length }} {{ books().length === 1 ? 'book' : 'books' }}</span>
+      </div>
+
+      @if (loading()) {
+        <p class="empty-state">Loading the collection…</p>
+      } @else if (books().length === 0) {
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <h3>A fresh shelf</h3>
+          <p>There are no books yet. Add the first one to get started.</p>
+        </div>
+      } @else {
+        <div class="book-list">
+          @for (book of books(); track book.id) {
+            <article class="book-card">
+              <div class="book-cover" aria-hidden="true">
+                <span>{{ book.title.charAt(0).toUpperCase() }}</span>
+              </div>
+              <div class="book-info">
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.pageCount }} pages</p>
+                <p class="book-price">{{ book.price | number: '1.2-2' }} {{ book.currencyCode }}</p>
+              </div>
+              <div class="book-actions">
+                <button class="button button-quiet" type="button" (click)="showDetails(book.id)">
+                  Details
+                </button>
+                <button
+                  class="button button-danger"
+                  type="button"
+                  [disabled]="deletingBookId() === book.id"
+                  (click)="deleteBook(book)"
+                >
+                  {{ deletingBookId() === book.id ? 'Deleting…' : 'Delete' }}
+                </button>
+              </div>
+            </article>
+          }
+        </div>
+      }
+
+      @if (selectedBook(); as book) {
+        <section class="details-panel" aria-labelledby="details-title">
+          <div class="details-heading">
+            <div>
+              <p class="eyebrow">BOOK DETAILS</p>
+              <h2 id="details-title">{{ book.title }}</h2>
+            </div>
+            <button class="close-button" type="button" aria-label="Close book details" (click)="closeDetails()">
+              ×
+            </button>
+          </div>
+          <dl class="details-list">
+            <div><dt>Pages</dt><dd>{{ book.pageCount }}</dd></div>
+            <div><dt>Price</dt><dd>{{ book.price | number: '1.2-2' }} {{ book.currencyCode }}</dd></div>
+            <div><dt>Book ID</dt><dd class="book-id">{{ book.id }}</dd></div>
+          </dl>
+        </section>
+      }
+    </section>
+
+    <aside class="add-panel" aria-labelledby="add-title">
+      <p class="eyebrow">GROW THE COLLECTION</p>
+      <h2 id="add-title">Add a book</h2>
+      <p class="panel-copy">A good shelf always has room for one more.</p>
+
+      <form (ngSubmit)="addBook(bookForm)" #bookForm="ngForm">
+        <label for="title">Title</label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          [(ngModel)]="newBook.title"
+          placeholder="e.g. The Left Hand of Darkness"
+          required
+          maxlength="200"
+        />
+
+        <div class="form-row">
+          <div>
+            <label for="pageCount">Pages</label>
+            <input id="pageCount" name="pageCount" type="number" [(ngModel)]="newBook.pageCount" min="1" required />
+          </div>
+          <div>
+            <label for="price">Price</label>
+            <input
+              id="price"
+              name="price"
+              type="number"
+              [(ngModel)]="newBook.price"
+              min="0.01"
+              step="0.01"
+              required
+            />
+          </div>
+        </div>
+
+        <label for="currencyCode">Currency code</label>
+        <input
+          id="currencyCode"
+          name="currencyCode"
+          type="text"
+          [(ngModel)]="newBook.currencyCode"
+          placeholder="USD"
+          minlength="3"
+          maxlength="3"
+          pattern="[A-Za-z]{3}"
+          required
+        />
+
+        <button class="button button-primary submit-button" type="submit" [disabled]="bookForm.invalid || saving()">
+          {{ saving() ? 'Adding book…' : 'Add to the shelf' }}
+          <span aria-hidden="true">↗</span>
+        </button>
+      </form>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <span>Made for readers, by readers.</span>
+  <span>One more chapter awaits.</span>
+</footer>

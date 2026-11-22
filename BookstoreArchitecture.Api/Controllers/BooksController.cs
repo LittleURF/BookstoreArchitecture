@@ -1,6 +1,6 @@
 using BookstoreArchitecture.Application.Services;
 using BookstoreArchitecture.Api.Models;
-using ApplicationBookDto = BookstoreArchitecture.Application.DTOs.BookDto;
+using ApplicationBookDto = BookstoreArchitecture.Application.Models.BookDto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookstoreArchitecture.Controllers
@@ -52,6 +52,6 @@ namespace BookstoreArchitecture.Controllers
         }
 
         private static BookDto ToApiDto(ApplicationBookDto book) =>
-            new(book.Id, book.Title, book.PageCount, book.Price);
+            new(book.Id, book.Title, book.PageCount, book.Price, book.CurrencyCode);
     }
 }
