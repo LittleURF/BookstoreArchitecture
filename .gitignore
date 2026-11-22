@@ -24,6 +24,8 @@ bld/
 [Ll]ogs/
 *.pdb
 .vs/
+BuildHost-net472/
+BuildHost-netcore/
 
 # .NET Core
 project.lock.json
